@@ -25,7 +25,7 @@ Uber provides a large volume of ride-related data.
   
 ## Tools & Libraries Used
 
-## Python
+## Python:
 
 - Pandas – Data cleaning & preprocessing
 - NumPy – Numerical operations
@@ -95,6 +95,7 @@ best_rf.predict(new_df)
 ## Author
 
 Created by: Hema Shrie
+
 Email: rhemashrie156@gmail.com
 
 

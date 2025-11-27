@@ -1,136 +1,103 @@
-Project Overview
+## Uber Ride Fare Prediction – Regression Analysis Project
 
-The goal of this project is to build a predictive model that estimates the fare amount for Uber rides based on trip features such as pickup/dropoff coordinates, distance, time, and passenger count.
+## Project Summary
 
-- This end-to-end ML pipeline includes:
+This project focuses on building a Regression Machine Learning Model to predict the fare amount of Uber rides based on trip details such as pickup/dropoff coordinates, distance, time, and passenger count.
+The goal is to develop an end-to-end ML pipeline that includes data preprocessing, feature engineering, model training, evaluation, and hyperparameter tuning, ensuring accurate and reliable fare predictions.
+
+ ## Project Overview
+
+Uber provides a large volume of ride-related data.
+
+## This project aims to:
+
+- Understand the relationship between ride attributes and fare amount.
+- Engineer meaningful features (distance, time-of-day, etc.)
+- Compare multiple regression models.
+- Optimize model performance using hyperparameter tuning.
+- Generate insights that help improve pricing strategies.
+
+## Files in This Repository
+
+- File Name	Description
+- uber.csv	Raw dataset containing Uber ride information.
+- Predict_Ride_Fare_Amount_RegressionAnalysis.ipynb	Complete end-to-end model pipeline: cleaning, EDA, modeling, tuning, and insights.
   
-- Data cleaning & wrangling
-- Handling missing values
-- Time-based feature engineering
-- Distance calculation using Haversine Formula
-- Outlier removal
-- Train–test split
-- Linear Regression, Decision Tree, Random Forest
-- Fast Hyperparameter Tuning
-- Final model evaluation & insights
+## Tools & Libraries Used
 
- Dataset Information
+## Python
 
-The dataset contains historical Uber trip details with the following key columns:
+- Pandas – Data cleaning & preprocessing
+- NumPy – Numerical operations
+- Matplotlib / Seaborn – Data visualization
+- Scikit-Learn – Machine Learning models & evaluation
+- Jupyter Notebook – Development environment
 
-- pickup_datetime – Date & time of ride
-- pickup_latitude, pickup_longitude
-- dropoff_latitude, dropoff_longitude
-- passenger_count
-- fare_amount (Target variable)
-- Additional engineered features:
-- Year, Month, Day, Hour
-- Weekday
-- Time of Day (Morning/Afternoon/Evening/Night)
-- Distance (Haversine)
+## Key Steps Performed
 
-Technologies Used
+## Data Cleaning:
 
-- Python
-- Pandas & NumPy
-- Matplotlib & Seaborn
-- Scikit-Learn
-- Jupyter Notebook
+- Removed missing and invalid values
+- Corrected datatypes
+- Cleaned inconsistent coordinates and passenger counts
+- Feature Engineering:
+- Converted datetime into year/month/day/hour
+- Extracted time-of-day categories
+- Calculated distance using the Haversine formula
 
- Data Preprocessing Steps:
- Missing value handling:
+## Exploratory Data Analysis (EDA):
 
-Dropped invalid or missing rows.
+- Distribution of fares
+- Distance vs. fare relationship
+- Passenger count patterns
+- Heatmaps and correlation analysis
 
- Datetime conversion:
+## Model Building:
 
-Extracted:
+- Linear Regression
+- Decision Tree Regressor
+- Random Forest Regressor
+- Hyperparameter Tuning:
+- Used RandomizedSearchCV for fast tuning
 
-- Year
-- Month
-- Day
-- Hour
-- Weekday
-- Time-of-day category
+Optimized parameters: n_estimators, max_depth, splits
 
- Distance calculation:
+## Model Evaluation:
 
-Computed trip distance using Haversine formula.
-
- Outlier removal:
-
-Filtered:
-
-- Negative / unrealistic fares
-- Distance > 50 km
-- Passenger count outside 1–6
-- Categorical encoding
-- One-hot encoded time_of_day.
-  
- Final cleanup:
-
-Dropped pickup_datetime after extracting useful info.
-
-Models Implemented
-
-1️. Linear Regression
-Baseline model using scaled numeric features.
-
-2️. Decision Tree Regressor
-Captures non-linear relationships.
-
-3️. Random Forest Regressor
-Best performing ensemble model.
-
-4️. Hyperparameter Tuned Random Forest
-Fast RandomizedSearchCV with optimized parameters.
-
- Model Evaluation Metrics
-
-Evaluation includes:
-
-- MAE: Mean Absolute Error
-- RMSE: Root Mean Squared Error
+- MAE (Mean Absolute Error)
+- RMSE (Root Mean Squared Error)
 - R² Score
-- The Tuned Random Forest provides the best performance.
 
- Key Feature Insights
+## Predictions:
 
-Based on feature importance from Random Forest:
+- Predicting fare for new ride inputs
+- Ensuring feature order matches trained model inputs
 
-- Distance is the strongest predictor of fare
-- Time-based features also influence pricing
-- Latitude/Longitude help determine accurate trip length
-- Passenger count has minor impact
+ ## Insights Discovered 
 
- Sample Prediction
+- Trip distance is the strongest predictor of fare amount.
+- Time-of-day and hour influence pricing moderately.
+- Passenger count has minimal impact except in extreme cases.
+- Tuned Random Forest achieved the best prediction performance.
 
-Sample code for predicting a new ride:
+ ## How to Use
 
-new_df = new_df[X_train.columns]    # Match training column order
+- Download or clone this repository.
+- Open the .ipynb file in Jupyter Notebook or VS Code.
+- Run all cells to reproduce preprocessing, EDA, model training, and predictions.
+- Modify input values in the prediction section to test new ride fares.
+
+Example prediction snippet:
+
+new_df = new_df[X_train.columns]   # Match training column order
 best_rf.predict(new_df)
 
-
-You can replace latitude, longitude, and passenger count with desired inputs.
-
-Repository Structure
-├── uber_fare_prediction.ipynb     # Final notebook
-├── uber.csv                       # Dataset (if allowed)
-├── README.md                      # Project documentation
-└── images/                        # Plots (optional)
-
- Final Results
-
-This project successfully builds an end-to-end ML pipeline that:
-
-- Cleans and prepares raw Uber data
-- Creates meaningful features
-- Trains multiple regression models
-- Tunes and selects the best model
-- Produces reliable fare predictions
-
-⭐ Author
+## Author
 
 Created by: Hema Shrie
-
 Email: rhemashrie156@gmail.com
+
+
+
+
+
